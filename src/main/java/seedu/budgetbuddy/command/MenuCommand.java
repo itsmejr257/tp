@@ -11,6 +11,11 @@ public class MenuCommand extends Command {
     private int index;
     private Ui ui;
 
+    /**
+     * Constructs the MenuCommand with the provided index
+     *
+     * @param index The index stated in user input
+     */
     public MenuCommand(int index) {
         assert index >= 0 : "Index should be a positive number";
         this.index = index;
