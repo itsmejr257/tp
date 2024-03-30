@@ -52,6 +52,18 @@ public class ExpenseList {
     }
 
 
+    /**
+     * Filters this.expenses based on the provided description, minimum amount and maximum amount.
+     * This method uses Java streams to perform a case-insensitive search for the description
+     * , and filters expenses to include the range specified by the minAmount and maxAmount.
+     *
+     * @param description The description to match against the description of the Expense object
+     * @param minAmount The minimum amount value of the Expense object
+     * @param maxAmount The minimum amount value of the Expense object
+     *
+     * @return An ArrayList of Expense object containing all filtered
+     *         Expense which match the provided parameters provided
+     */
     public ArrayList<Expense> filterExpenses(String description, Double minAmount, Double maxAmount) {
         assert minAmount <= maxAmount : "Minimum Amount must be smaller than or equals to Max Amount";
 
