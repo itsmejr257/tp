@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class FindExpensesCommand extends Command {
     private static final Logger LOGGER = Logger.getLogger(FindExpensesCommand.class.getName());
     private ExpenseList expenses;
@@ -16,6 +17,15 @@ public class FindExpensesCommand extends Command {
     private Double maxAmount;
     private Ui ui;
 
+    /**
+     * Constructs a FindExpensesCommand with the specified expenses, description, minAmount and maxAmount.
+     * Also instantiates an Ui class to print dividers.
+     *
+     * @param expenses The ExpenseList to filter
+     * @param description The description to filter
+     * @param minAmount The minimum amount to filter
+     * @param maxAmount The maximum amount to filter
+     */
     public FindExpensesCommand(ExpenseList expenses, String description, Double minAmount, Double maxAmount) {
         if (minAmount != null && maxAmount != null) {
             assert minAmount <= maxAmount : "Minimum amount cannot be larger than Maximum Amount";
@@ -33,6 +43,11 @@ public class FindExpensesCommand extends Command {
         this.maxAmount = maxAmount;
     }
 
+    /**
+     * Prints the initialization message detailing the search criteria.
+     * This method outlines the parameters the search will use to find matching expenses
+     *
+     */
     public void printInitializationMessage() {
         ui.printDivider();
         System.out.println("Looking for Expenses with the following parameters : ");
@@ -59,6 +74,12 @@ public class FindExpensesCommand extends Command {
         }
     }
 
+    /**
+     * Executes the find expenses command. It obtains an ArrayList containing all the filtered expenses
+     * and prints the obtained filtered expenses to the CLI. If the filtered expenses is empty, it prints a
+     * message stating no matching expenses were found.
+     *
+     */
     @Override
     public void execute() {
 
